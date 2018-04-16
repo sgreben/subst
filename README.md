@@ -37,7 +37,7 @@ unzip subst_1.1.0_windows_x86_64.zip
 
 ## Use it
 
-`subst` reads definitions from CLI arguments, reads from stdin, and writes to stdout. The stdin input is line-buffered.
+`subst` uses key=value mappings given as CLI arguments, reads from stdin, and writes to stdout. The stdin input is line-buffered.
 
 ```text
 
@@ -45,6 +45,8 @@ subst [OPTIONS] [KEY=VAL [KEY=VAL...]]
 
 Usage of subst:
   -q    suppress all logs
+  -escape string
+        set the escape string. if set, a '$' preceded by the escape string does not lead to expansion
   -unknown value
         handling of unknown keys, one of [ignore empty error] (default ignore)
 ```
