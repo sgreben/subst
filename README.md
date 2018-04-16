@@ -2,12 +2,14 @@
 
 `subst` parses its arguments as `KEY=VALUE` pairs, substitutes `$KEY`s by `VALUE`s in stdin, and writes the result to stdout.
 
+<!-- TOC -->
+
 - [Get it](#get-it)
 - [Use it](#use-it)
-    - [JSON output](#json-output)
-    - [Template output](#template-output)
-    - [Setting URL components](#setting-subst-components)
-- [Comments](https://github.com/sgreben/subst/issues/1)
+    - [Examples](#examples)
+- [Comments](#comments)
+
+<!-- /TOC -->
 
 ## Get it
 
