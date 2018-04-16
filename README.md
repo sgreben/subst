@@ -23,16 +23,16 @@ Or [download the binary](https://github.com/sgreben/subst/releases/latest) from 
 
 ```bash
 # Linux
-curl -LO https://github.com/sgreben/subst/releases/download/1.0.1/subst_1.0.1_linux_x86_64.zip
-unzip subst_1.0.1_linux_x86_64.zip
+curl -LO https://github.com/sgreben/subst/releases/download/1.1.0/subst_1.1.0_linux_x86_64.zip
+unzip subst_1.1.0_linux_x86_64.zip
 
 # OS X
-curl -LO https://github.com/sgreben/subst/releases/download/1.0.1/subst_1.0.1_osx_x86_64.zip
-unzip subst_1.0.1_osx_x86_64.zip
+curl -LO https://github.com/sgreben/subst/releases/download/1.1.0/subst_1.1.0_osx_x86_64.zip
+unzip subst_1.1.0_osx_x86_64.zip
 
 # Windows
-curl -LO https://github.com/sgreben/subst/releases/download/1.0.1/subst_1.0.1_windows_x86_64.zip
-unzip subst_1.0.1_windows_x86_64.zip
+curl -LO https://github.com/sgreben/subst/releases/download/1.1.0/subst_1.1.0_windows_x86_64.zip
+unzip subst_1.1.0_windows_x86_64.zip
 ```
 
 ## Use it
@@ -88,6 +88,13 @@ $USER
 sgreben
 $SHELL
 /bin/zsh
+```
+
+To ignore occurrences of defined variables, you can define an escape string using the `-escape` flag:
+
+```shell
+$ echo 'unescaped: $X, ${X}. escaped: \$X, \${X}.' | subst -escape '\' X=value
+unescaped: value, value. escaped: \$X, \${X}.
 ```
 
 ## Comments

@@ -14,15 +14,18 @@ var definitions = make(map[string]string)
 var nonzeroExit = false
 var newline = []byte{'\n'}
 
-var quiet bool
-var unknownWarn = true
-var unknownKey = enumVar{
-	Choices: []string{
-		unknownValueEmpty,
-		unknownValueIgnore,
-		unknownValueError,
-	},
-}
+var (
+	quiet       bool
+	unknownWarn = true
+	escape      string
+	unknownKey  = enumVar{
+		Choices: []string{
+			unknownValueEmpty,
+			unknownValueIgnore,
+			unknownValueError,
+		},
+	}
+)
 
 const (
 	unknownValueEmpty  = "empty"
@@ -43,6 +46,7 @@ func parseDefinition(d string) (key, value string, err error) {
 func init() {
 	log.SetOutput(os.Stderr)
 	flag.BoolVar(&quiet, "q", false, "suppress all logs")
+	flag.StringVar(&escape, "escape", "", "set the escape string. if set, a '$' preceded by the escape string does not lead to expansion")
 	flag.Var(&unknownKey, "unknown", "handling of unknown keys, one of [ignore empty error] (default ignore)")
 	flag.Parse()
 	if quiet {
@@ -85,7 +89,8 @@ func main() {
 	s.Split(bufio.ScanLines)
 	for s.Scan() {
 		line := s.Text()
-		_, err := os.Stdout.WriteString(os.Expand(line, subst))
+		line = expand(line, escape, subst)
+		_, err := os.Stdout.WriteString(line)
 		if err != nil {
 			log.Println(err)
 		}

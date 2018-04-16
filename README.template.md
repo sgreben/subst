@@ -90,6 +90,13 @@ $SHELL
 /bin/zsh
 ```
 
+To ignore occurrences of defined variables, you can define an escape string using the `-escape` flag:
+
+```shell
+$ echo 'unescaped: $X, ${X}. escaped: \$X, \${X}.' | subst -escape '\' X=value
+unescaped: value, value. escaped: \$X, \${X}.
+```
+
 ## Comments
 
 Feel free to [leave a comment](https://github.com/sgreben/subst/issues/1) or create an issue.
