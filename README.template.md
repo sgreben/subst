@@ -23,16 +23,16 @@ Or [download the binary](https://github.com/sgreben/subst/releases/latest) from 
 
 ```bash
 # Linux
-curl -LO https://github.com/sgreben/subst/releases/download/${VERSION}/url_${VERSION}_linux_x86_64.zip
-unzip url_${VERSION}_linux_x86_64.zip
+curl -LO https://github.com/sgreben/subst/releases/download/${VERSION}/subst_${VERSION}_linux_x86_64.zip
+unzip subst_${VERSION}_linux_x86_64.zip
 
 # OS X
-curl -LO https://github.com/sgreben/subst/releases/download/${VERSION}/url_${VERSION}_osx_x86_64.zip
-unzip url_${VERSION}_osx_x86_64.zip
+curl -LO https://github.com/sgreben/subst/releases/download/${VERSION}/subst_${VERSION}_osx_x86_64.zip
+unzip subst_${VERSION}_osx_x86_64.zip
 
 # Windows
-curl -LO https://github.com/sgreben/subst/releases/download/${VERSION}/url_${VERSION}_windows_x86_64.zip
-unzip url_${VERSION}_windows_x86_64.zip
+curl -LO https://github.com/sgreben/subst/releases/download/${VERSION}/subst_${VERSION}_windows_x86_64.zip
+unzip subst_${VERSION}_windows_x86_64.zip
 ```
 
 ## Use it
