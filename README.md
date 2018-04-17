@@ -2,6 +2,8 @@
 
 `subst` parses its arguments as `KEY=VALUE` pairs, substitutes `$KEY`s by `VALUE`s in stdin, and writes the result to stdout.
 
+![screenshot](docs/shot.png)
+
 <!-- TOC -->
 
 - [Get it](#get-it)
