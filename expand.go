@@ -42,14 +42,18 @@ func expand(s, escape string, mapping func(string) string) string {
 	for j := 0; j < len(s); j++ {
 		if shouldEscape {
 			if j+len(escaped) < len(s) && s[j:j+len(escaped)] == escaped {
-				j += len(escaped)
+				buf = append(buf, s[i:j]...)
+				buf = append(buf, s[j+len(escape):j+len(escaped)]...)
+				i = j + len(escaped)
+				j = i
 				continue
 			}
 		}
 		if s[j] == '$' && j+1 < len(s) {
 			buf = append(buf, s[i:j]...)
 			name, w := variableName(s[j+1:])
-			buf = append(buf, mapping(name)...)
+			value := mapping(name)
+			buf = append(buf, value...)
 			j += w
 			i = j + 1
 		}

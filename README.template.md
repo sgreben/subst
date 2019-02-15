@@ -8,7 +8,7 @@
 
 - [Get it](#get-it)
 - [Use it](#use-it)
-    - [Examples](#examples)
+  - [Examples](#examples)
 - [Comments](#comments)
 
 <!-- /TOC -->
@@ -21,7 +21,7 @@ Using go get:
 go get -u github.com/sgreben/subst
 ```
 
-Or [download the binary](https://github.com/sgreben/subst/releases/latest) from the releases page. 
+Or [download the binary](https://github.com/sgreben/subst/releases/latest) from the releases page.
 
 ```bash
 # Linux
@@ -64,17 +64,17 @@ comment: $COMMENT
 $ cat template.yaml | subst -q NAME=jp  URL=github.com/sgreben/jp COMMENT=
 name: jp
 url: github.com/sgreben/jp
-comment: 
+comment:
 
-$ cat template.yaml | subst -q NAME=jp 
+$ cat template.yaml | subst -q NAME=jp
 name: jp
 url: $URL
 comment: $COMMENT
 
-$ cat template.yaml | subst -q -unknown=empty NAME=jp 
+$ cat template.yaml | subst -q -unknown=empty NAME=jp
 name: jp
-url: 
-comment: 
+url:
+comment:
 ```
 
 Without the `-q` flag, `subst` also prints to stderr:
@@ -98,7 +98,7 @@ To ignore occurrences of defined variables, you can define an escape string usin
 
 ```shell
 $ echo 'unescaped: $X, ${X}. escaped: \$X, \${X}.' | subst -escape '\' X=value
-unescaped: value, value. escaped: \$X, \${X}.
+unescaped: value, value. escaped: $X, ${X}.
 ```
 
 ## Comments
